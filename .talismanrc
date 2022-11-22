@@ -1,0 +1,9 @@
+
+fileignoreconfig:
+- filename: Pipfile.lock
+  checksum: b7baec1ab5ba9241980a3ac301034183c95f60fc62c840377d28ac1f09e70655
+- filename: package-lock.json
+  checksum: f3ca3034232bef5a5b25ae6960d7d37e822534ff7acdf40784b2a3c0e209d18c
+- filename: try-on.py
+  checksum: 3328ca633e9f84cc6b1c1156a97a6f4aac0b99af9132b17343c5ad8954fac781
+version: ""

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <h1 class="header">Live streaming</h1>
+        <div class="row">
+            <div class="col-sm-6">
+                <img name="video1" class="container p-5 my-5 border" src="{{ url_for('submit', img_url='test.jpeg') }}" width="100%"/>
+            </div>
+            <div class="col-sm-6">
+                <a href="#" id="glasses" onclick="window.location='{{url_for('submit', img_url='glasses.png')}}';">
+                    <img src="{{url_for('static', filename='glasses.png')}}" alt="glass" class="thumbnails" />
+                </a>
+                <a href="#" id="glass1" onclick="window.location='{{url_for('submit', img_url='image_2.png')}}';">
+                    <img src="{{url_for('static', filename='glasses-removebg-preview.png')}}" alt="glass1" class="thumbnails" />
+                </a>
+                <a href="#" id="glass2" onclick="window.location='{{url_for('submit', img_url='img_6.png')}}';">
+                    <img src="{{url_for('static', filename='img_6.png')}}" alt="glass6" class="thumbnails" />
+                </a>
+                <a href="#" id="glass8" onclick="window.location='{{url_for('submit', img_url='img_8.png')}}';">
+                    <img src="{{url_for('static', filename='img_8.png')}}" alt="glass8" class="thumbnails" />
+                </a>
+                <a href="#" id="glass13" onclick="window.location='{{url_for('submit', img_url='img_13.png')}}';">
+                    <img src="{{url_for('static', filename='img_13.png')}}" alt="glass13" class="thumbnails" />
+                </a>
+                <a href="#" id="glass15" onclick="window.location='{{url_for('submit', img_url='img_15.png')}}';">
+                    <img src="{{url_for('static', filename='img_15.png')}}" alt="glass15" class="thumbnails" />
+                </a>
+
+            </div>
+        </div>
+        <h1 class="footer">Developed by Fledglings</h1>
+    </body>
+</html>
+
+
+

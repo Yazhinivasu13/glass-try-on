@@ -1,0 +1,14 @@
+body{
+    background-color: black
+}
+
+.header {
+    background-color: green
+}
+
+.video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/glass-try-on.css') }}">
