@@ -44,17 +44,17 @@ def generate_frames(img_url):
                     x_width = (max(left_eye_xs) - min(right_eye_xs)) + 100
                     y_height = (max(left_eye_ys) - min(left_eye_ys)) + 100
 
-                    replace_img_base = cv2.imread(img_url)
-                    replace_img_base = image_resize(replace_img_base, width=x_width, height=y_height)
+                    glass = cv2.imread(img_url)
+                    glass = image_resize(glass, width=x_width, height=y_height)
 
-                    h2, w2 = replace_img_base.shape[:2]
+                    h2, w2 = glass.shape[:2]
 
                     roi = img[y:y + h2, x:x + w2]
-                    gray = cv2.cvtColor(replace_img_base, cv2.COLOR_BGR2GRAY)
-                    _, mask = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY)
+                    gray = cv2.cvtColor(glass, cv2.COLOR_BGR2GRAY)
+                    _, mask = cv2.threshold(gray, 220, 255, cv2.THRESH_BINARY)
                     mask_inv = cv2.bitwise_not(mask)
                     img_bg = cv2.bitwise_and(roi, roi, mask=mask)
-                    img_fg = cv2.bitwise_and(replace_img_base, replace_img_base, mask=mask_inv)
+                    img_fg = cv2.bitwise_and(glass, glass, mask=mask_inv)
                     final = cv2.add(img_bg, img_fg)
                     img[y:y + h2, x:x + w2] = final
 
