@@ -13,6 +13,12 @@ def generate_frames(img_url):
         success, img = camera.read()
         if not success:
             break
+        elif img_url == "images/blank.png":
+            ret, buffer = cv2.imencode('.jpg', img)
+            img = buffer.tobytes()
+
+            yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + img + b'\r\n')
         else:
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
             results = mp_face_mesh.FaceMesh(max_num_faces=2, refine_landmarks=True).process(img)
@@ -51,7 +57,7 @@ def generate_frames(img_url):
 
                     roi = img[y:y + h2, x:x + w2]
                     gray = cv2.cvtColor(glass, cv2.COLOR_BGR2GRAY)
-                    _, mask = cv2.threshold(gray, 220, 255, cv2.THRESH_BINARY)
+                    _, mask = cv2.threshold(gray, 228, 255, cv2.THRESH_BINARY)
                     mask_inv = cv2.bitwise_not(mask)
                     img_bg = cv2.bitwise_and(roi, roi, mask=mask)
                     img_fg = cv2.bitwise_and(glass, glass, mask=mask_inv)
