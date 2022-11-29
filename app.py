@@ -1,3 +1,5 @@
+from concurrent.futures.thread import ThreadPoolExecutor
+
 from flask import Flask, render_template, Response
 
 from live_try_on import generate_frames
@@ -21,4 +23,5 @@ def submit(img_url):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    with ThreadPoolExecutor(max_workers=4) as process_thread:
+        process_thread.map(app.run(debug=True))
